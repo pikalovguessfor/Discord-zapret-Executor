@@ -2,6 +2,7 @@
 #include <fstream>
 #include <Windows.h>
 #include <string>
+#include "ErrorHeader.h"
 
 using namespace std;
 
@@ -17,8 +18,6 @@ private:
 public:
 
 	char DataIn[1000];
-
-
 
 	Data() {
 
@@ -39,29 +38,66 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ifstream _ReadingPath_Discord;
 	ifstream _ReadingPath_Zapr;
 
-	_ReadingPath_Discord.open(_resoursesDir + "discord_path" + _txtAttribute);										//algorithm of reading addres of program
-	_ReadingPath_Discord >> _ScanPath_Discord.DataIn;
-	_ReadingPath_Discord.close();
+	try {
 
-	for (int i = 0; i < 1000; i++) {
+		_ReadingPath_Discord.open(_resoursesDir + "discord_path" + _txtAttribute);										//algorithm of reading addres of program
+		
+		if (_ReadingPath_Discord.is_open()) {
 
-		if (_ScanPath_Discord.DataIn[i] == ' ') {
-			_ScanPath_Discord.DataIn[i] = '\0';
+			_ReadingPath_Discord >> _ScanPath_Discord.DataIn;
+			_ReadingPath_Discord.close();
+
+		}
+		else {
+
+			IFFileCantBeOpen(ErrorFileDiscord);
+
 		}
 
+		for (int i = 0; i < 1000; i++) {
+
+			if (_ScanPath_Discord.DataIn[i] == ' ') {
+				_ScanPath_Discord.DataIn[i] = '\0';
+			}
+
+		}
 	}
+	catch (...) {
 
-	_ReadingPath_Zapr.open(_resoursesDir + "zapret_path" + _txtAttribute);										     //algorithm of reading addres of program
-	_ReadingPath_Zapr.getline(_ScanPath_Zapr.DataIn, 1000);
-	_ReadingPath_Zapr.close();
+		IFError("Something went wrong with program");
 
-	for (int i = 0; i < 1000; i++) {
+	};
 
-		if (_ScanPath_Zapr.DataIn[i] == ' ') {
-			_ScanPath_Zapr.DataIn[i] = '\0';
+	try {
+
+		_ReadingPath_Zapr.open(_resoursesDir + "zapret_path" + _txtAttribute);										     //algorithm of reading addres of program
+		
+		if (_ReadingPath_Zapr.is_open()) {
+
+
+			_ReadingPath_Zapr.getline(_ScanPath_Zapr.DataIn, 1000);
+			_ReadingPath_Zapr.close();
+
+		}
+		else {
+
+			IFFileCantBeOpen(ErrorFileZapret);
+
 		}
 
+		for (int i = 0; i < 1000; i++) {
+
+			if (_ScanPath_Zapr.DataIn[i] == ' ') {
+				_ScanPath_Zapr.DataIn[i] = '\0';
+			}
+
+		}
 	}
+	catch (...) {
+
+		IFError("Something went wrong with program");
+
+	};
 
 
 	WinExec(_ScanPath_Discord.DataIn, 1);																			// execution of programs

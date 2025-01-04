@@ -129,9 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Maincpp.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ErrorHeader.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

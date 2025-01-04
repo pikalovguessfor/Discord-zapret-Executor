@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <Windows.h>
 #include <string>
-#include "ErrorHeader.h"
+#include <time.h>
+#include <direct.h>
+#include <Windows.h>
 
 using namespace std;
 
@@ -30,6 +31,38 @@ public:
 	};
 };
 
+struct FileLog {
+
+	ofstream FILElog;
+
+	string LogPathDir = "Logs/";
+	string LogPath = LogPathDir;
+
+	void CreateFileOfLogAndWriteInside(string ErrorText) {
+
+		FILElog.open(LogPath);
+		FILElog << ErrorText;
+		FILElog.close();
+
+	}
+
+	void MakeLogDir() {
+
+		_mkdir("Logs");
+		
+	}
+
+	FileLog(string FileName, string ErrorText) {																						//it`s need to mark file signature (.txt)
+
+		this->LogPath = LogPath + FileName;
+
+		MakeLogDir();
+		CreateFileOfLogAndWriteInside(ErrorText);
+
+	}
+
+};
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {					// point of enter
 
 	Data _ScanPath_Discord;
@@ -49,8 +82,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		}
 		else {
-
-			IFFileCantBeOpen(ErrorFileDiscord);
+			
+			FileLog EXDisError("Log.txt", "DiscordCantBeOpen");
 
 		}
 
@@ -64,7 +97,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	catch (...) {
 
-		IFError("Something went wrong with program");
+		FileLog TryEXDis("Log.txt", "Unknown ERROR discord");
 
 	};
 
@@ -81,7 +114,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else {
 
-			IFFileCantBeOpen(ErrorFileZapret);
+			FileLog LogZaprERROR("Log.txt", "Zapret Cant be open");
 
 		}
 
@@ -94,8 +127,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 	}
 	catch (...) {
-
-		IFError("Something went wrong with program");
+		
+		FileLog TryEXZapr("Log.txt", "Unkown ERROR Zapr");
 
 	};
 

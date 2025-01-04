@@ -19,9 +19,4 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ErrorHeader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

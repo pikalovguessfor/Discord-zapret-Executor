@@ -102,6 +102,7 @@
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 8;
             textBox3.Text = "Путь к дискорду:";
+            textBox3.Visible = false;
             // 
             // textBox4
             // 
@@ -110,6 +111,7 @@
             textBox4.Size = new Size(100, 23);
             textBox4.TabIndex = 9;
             textBox4.Text = "Путь к запрету:";
+            textBox4.Visible = false;
             // 
             // Form1
             // 

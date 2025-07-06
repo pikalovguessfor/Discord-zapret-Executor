@@ -9,8 +9,6 @@ namespace PForm_path_fill
         public static void WriteInfoInTXT_Script(String Path, String Info)
         {
 
-                   
-            File.OpenWrite(Path);
             File.WriteAllText(Path ,Info);
 
            

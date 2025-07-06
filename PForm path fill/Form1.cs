@@ -12,7 +12,7 @@ namespace PForm_path_fill
         private void button_path_Click(object sender, EventArgs e)
         {
 
-            textBox1.Visible = true; textBox2.Visible = true; button2.Visible = true;
+            textBox1.Visible = true; textBox2.Visible = true; textBox3.Visible = true; textBox4.Visible = true; button2.Visible = true;
 
         }
 
@@ -22,8 +22,8 @@ namespace PForm_path_fill
             const string PATHToDiscordTXT = "_resourses/discord_path.txt";
             const string PATHToZapretTXT = "_resourses/zapret_path.txt";
 
-            FileWrite.WriteInfoInTXT_Script(PATHToDiscordTXT, textBox1.ToString());
-            FileWrite.WriteInfoInTXT_Script(PATHToDiscordTXT, textBox2.ToString());
+            FileWrite.WriteInfoInTXT_Script(PATHToDiscordTXT, textBox1.Text);
+            FileWrite.WriteInfoInTXT_Script(PATHToZapretTXT, textBox2.Text);
 
         }
 

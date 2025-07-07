@@ -41,20 +41,31 @@ class Logs {
 
 private:
 
-	wchar_t nameOfLogDir[5] = L"Logs";
+	char nameOfLogDir[5] = "Logs";
 
 public:
 	
-	void writeTroubleInLog() {
+	void writeTroubleInLog(const char Trouble[]) {
 
 		struct FileName {
 			
-			wchar_t Name[4];
+			char Name[4];
 			
-			bool isFileWithThisNameExist(wchar_t name[4]) {
+			bool isFileWithThisNameExist(char name[4]) {
 
-				ofstream FileChecker;
+				ifstream FileChecker;
 
+				FileChecker.open(string(name)+ ".txt");
+				if (FileChecker.is_open()) {
+					FileChecker.close();
+					return true;
+				}
+				else {
+					FileChecker.close();
+					return false;
+				}
+
+				return true;
 			}
 
 			void GenerateName() {
@@ -75,7 +86,7 @@ public:
 
 				for (int i = 0; i < 3; i++) {
 
-					this->Name[i] = (wchar_t)ProtoNameINT[i];
+					this->Name[i] = (char)ProtoNameINT[i];
 
 				}
 
@@ -83,10 +94,19 @@ public:
 			}
 
 		};
+
+		/*
+		* begin of proccedure to write in log.
+		*/
+
+		ofstream FileWriter;
 		FileName fn;
 		fn.GenerateName();
 
-		_mkdir((const char)nameOfLogDir + "/" + (const char)fn.Name + (const char)".txt");
+		_mkdir(nameOfLogDir);
+		
+		FileWriter.open(string(fn.Name) + "txt");
+		FileWriter << Trouble;
 	}
 
 };
@@ -102,8 +122,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wchar_t* TextFromDiscTXT = ReadInfoFromFile(pathToDiscARR);
 
 
-	_CreateProccesW(TextFromZaprTXT);
-	_CreateProccesW(TextFromDiscTXT);
+	if (!_CreateProccesW(TextFromZaprTXT)) {
+		logEX.writeTroubleInLog("Процесс не может быть создан!!! Неправильно записан путь в папке _resourses/zapret_path.txt");
+	}
+	if (_CreateProccesW(TextFromDiscTXT)) {
+		logEX.writeTroubleInLog("Процесс не может быть создан!!! Неправильно записан путь в папке _resourses/discord-path.txt");
+	}
 
 
 	delete[] TextFromZaprTXT;

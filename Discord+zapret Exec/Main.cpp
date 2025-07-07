@@ -97,7 +97,6 @@ wchar_t pathToDiscARR[256] = L"_resourses/discord_path.txt";
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {					// point of enter
 
 	Logs logEX;
-	logEX.MakeDirectory((wchar_t*)L"Logs");
 
 	wchar_t* TextFromZaprTXT = ReadInfoFromFile(pathToZaprARR);
 	wchar_t* TextFromDiscTXT = ReadInfoFromFile(pathToDiscARR);

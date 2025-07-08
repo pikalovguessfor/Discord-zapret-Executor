@@ -7,9 +7,9 @@
 #include <tchar.h>
 #include <Windows.h>
 #include <locale>
+#include <fstream>
 
 #include "FileAction.h";
-#include "logs.h"
 
 using namespace std;
 

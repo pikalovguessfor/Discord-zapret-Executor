@@ -25,5 +25,8 @@
     <ClInclude Include="FileAction.h">
       <Filter>Headers file</Filter>
     </ClInclude>
+    <ClInclude Include="logsHandler.h">
+      <Filter>Headers file</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

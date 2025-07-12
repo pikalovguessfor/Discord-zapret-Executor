@@ -10,6 +10,7 @@
 #include <fstream>
 
 #include "FileAction.h";
+#include "logsHandler.h"
 
 using namespace std;
 
@@ -42,8 +43,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 	if (!_CreateProccesW(TextFromZaprTXT)) {
+		Logs("Ошибка: Текст из файла Zapret_path.txt не может быть прочитан, возможно неверный путь");
 	}
 	if (_CreateProccesW(TextFromDiscTXT)) {
+		Logs("Ошибка: Текст из файла Discord_path.txt не может быть прочитан, возможно неверный путь");
 	}
 
 

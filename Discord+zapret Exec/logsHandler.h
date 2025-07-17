@@ -24,7 +24,7 @@ public:
 		My_mkdir();
 		std::ofstream FileLog;
 
-		FileLog.open(this->CurrentTimeStr + ".txt");
+		FileLog.open("_resourses/" + this->CurrentTimeStr + ".txt");
 		FileLog << Input;
 		FileLog.close();
 

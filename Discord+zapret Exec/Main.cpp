@@ -42,13 +42,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wchar_t* TextFromDiscTXT = ReadInfoFromFile(pathToDiscARR);
 
 
-	if (!_CreateProccesW(TextFromZaprTXT)) {
-		Logs("Ошибка: Текст из файла Zapret_path.txt не может быть прочитан, возможно неверный путь");
-	}
-	if (_CreateProccesW(TextFromDiscTXT)) {
-		Logs("Ошибка: Текст из файла Discord_path.txt не может быть прочитан, возможно неверный путь");
-	}
-
+	_CreateProccesW(TextFromZaprTXT);
+	_CreateProccesW(TextFromDiscTXT);
+	
 
 	delete[] TextFromZaprTXT;
 	delete[] TextFromDiscTXT;

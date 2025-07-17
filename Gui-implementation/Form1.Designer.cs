@@ -36,6 +36,7 @@
             Zapret_Path_Box = new TextBox();
             Zapret_Path_Label = new Label();
             Discord_Path_Label = new Label();
+            InfoGraphicImplementation = new TextBox();
             SuspendLayout();
             // 
             // Fill_paths_button
@@ -110,12 +111,20 @@
             Discord_Path_Label.TabIndex = 7;
             Discord_Path_Label.Text = "Путь к дискорду";
             // 
+            // InfoGraphicImplementation
+            // 
+            InfoGraphicImplementation.Location = new Point(2, 604);
+            InfoGraphicImplementation.Name = "InfoGraphicImplementation";
+            InfoGraphicImplementation.Size = new Size(275, 23);
+            InfoGraphicImplementation.TabIndex = 8;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1199, 628);
+            Controls.Add(InfoGraphicImplementation);
             Controls.Add(Discord_Path_Label);
             Controls.Add(Zapret_Path_Label);
             Controls.Add(Auto_Fill_Path_Button);
@@ -142,5 +151,6 @@
         private TextBox Zapret_Path_Box;
         private Label Zapret_Path_Label;
         private Label Discord_Path_Label;
+        private TextBox InfoGraphicImplementation;
     }
 }

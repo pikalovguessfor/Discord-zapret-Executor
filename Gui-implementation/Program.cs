@@ -1,4 +1,4 @@
-namespace PForm_path_fill
+namespace Gui_implementation
 {
     internal static class Program
     {

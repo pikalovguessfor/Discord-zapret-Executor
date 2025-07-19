@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 #include <string>
 
@@ -16,6 +18,4 @@ namespace TF_WORK
         std::getline(ifs, content);
         return &content;
     }
-
-    
 }

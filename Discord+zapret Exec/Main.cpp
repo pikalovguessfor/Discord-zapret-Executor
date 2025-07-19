@@ -1,5 +1,5 @@
 /*
-* Script to automatical execute Zapret and Discord on your computer
+* Script to automatically execute Zapret and Discord on your computer
 * First: script execute Zapret
 * Second: script execute Discord
 */
@@ -18,7 +18,7 @@ int _CreateProccesW(TCHAR Path[1024]) {
 
 
 	/*
-	* Realisation of independent proccess execute
+	* Realisation of independent process execute
 	* Working with TCHAR strings aka TCHAR*
 	*/
 
@@ -41,7 +41,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wchar_t* TextFromZaprTXT = ReadInfoFromFile(pathToZaprARR);
 	wchar_t* TextFromDiscTXT = ReadInfoFromFile(pathToDiscARR);
 
-
+	if (pathToZaprARR[0] == (wchar_t)"\0")
+	{
+		Logs("Путь к файлу zapret.bat пуст");
+	}
+	else if (pathToDiscARR[0] == (wchar_t)"\0")
+	{
+		Logs("Путь к файлу Discord.exe пуст")
+	}
+	
 	_CreateProccesW(TextFromZaprTXT);
 	_CreateProccesW(TextFromDiscTXT);
 	

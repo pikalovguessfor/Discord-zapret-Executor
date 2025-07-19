@@ -47,7 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 	else if (pathToDiscARR[0] == (wchar_t)"\0")
 	{
-		Logs("Путь к файлу Discord.exe пуст")
+		Logs("Путь к файлу Discord.exe пуст");
 	}
 	
 	_CreateProccesW(TextFromZaprTXT);

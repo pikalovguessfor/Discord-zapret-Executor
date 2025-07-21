@@ -1,15 +1,10 @@
-﻿using System;
-using System.IO;
-
-namespace Path_Auto_filler
+﻿namespace Path_Auto_filler
 {
     internal class Pathfinder
     {
-
         public string FilePath;
 
-
-        private static void SearchFile(string directory, string fileName)
+        private void SearchFile(string directory, string fileName)
         {
             try
             {
@@ -18,6 +13,8 @@ namespace Path_Auto_filler
                 foreach (string file in files)
                 {
                     Console.WriteLine($"Найден файл: {file}");
+                    this.FilePath = file;
+                    return; // Выходим после первого найденного файла
                 }
 
                 // Рекурсивно ищем в поддиректориях
@@ -25,6 +22,8 @@ namespace Path_Auto_filler
                 foreach (string dir in subDirs)
                 {
                     SearchFile(dir, fileName);
+                    if (!string.IsNullOrEmpty(this.FilePath))
+                        return; // Если файл найден в поддиректории, выходим
                 }
             }
             catch (UnauthorizedAccessException)
@@ -37,11 +36,10 @@ namespace Path_Auto_filler
             }
         }
 
-
-        public Pathfinder(string filename) 
+        public Pathfinder(string filename)
         {
-
-            Console.WriteLine("Идет поиск файла на диске ", filename);
+            Console.WriteLine($"Идет поиск файла {filename} на диске");
+            FilePath = null; // Инициализируем как null
 
             // Получаем список всех дисков
             DriveInfo[] allDrives = DriveInfo.GetDrives();
@@ -52,9 +50,15 @@ namespace Path_Auto_filler
                 {
                     Console.WriteLine($"Поиск на диске {drive.Name}...");
                     SearchFile(drive.RootDirectory.FullName, filename);
+                    if (!string.IsNullOrEmpty(FilePath))
+                        break; // Если файл найден, прекращаем поиск
                 }
             }
 
+            if (string.IsNullOrEmpty(FilePath))
+            {
+                Console.WriteLine($"Файл {filename} не найден");
+            }
         }
     }
 }

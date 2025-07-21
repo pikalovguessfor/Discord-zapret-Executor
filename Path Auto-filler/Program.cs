@@ -19,6 +19,7 @@ namespace Path_Auto_filler
 
             string DiscordPath;
             string ZapretPath;
+            string ZapretPathNumber;
 
             Pathfinder discordPath = new Pathfinder("Discord.exe");
             DiscordPath = discordPath.FilePath;
@@ -28,48 +29,73 @@ namespace Path_Auto_filler
             {
 
                 case 1:
-                    
+                    {
+                        ZapretPathNumber = "discord.bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
-
-
-
-                    break;
+                        
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 case 2:
+                    {
+                        ZapretPathNumber = "general (ALT).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
 
-
-
-                    break;
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 case 3:
+                    {
+                        ZapretPathNumber = "general (ALT2).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
 
-
-
-                    break;
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 case 4:
+                    {
+                        ZapretPathNumber = "general (ALT3).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
 
-
-
-                    break;
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 case 5:
+                    {
+                        ZapretPathNumber = "general (ALT4).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
 
-
-
-                    break;
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 case 6:
+                    {
+                        ZapretPathNumber = "general (ALT5).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
 
-
-
-                    break;
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
                 default:
                     Console.WriteLine("Неправильный ввод, допустимы значения 1-6");
 
                     break;
             }
+
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Нажмите любую кнопку для выхода...");
+            Console.ReadKey();
         }
 
     }
+
 }

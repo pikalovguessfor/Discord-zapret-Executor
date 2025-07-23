@@ -22,6 +22,14 @@ namespace Path_Auto_filler
             Console.WriteLine("5)general(ALT4)");
             Console.WriteLine("6)general(ALT5)");
             Console.WriteLine("7)general(ALT6)");
+            Console.WriteLine("8)general (FAKE TLS ALT)");
+            Console.WriteLine("9)general (FAKE TLS AUTO ALT)");
+            Console.WriteLine("10)general (FAKE TLS AUTO ALT2)");
+            Console.WriteLine("11)general (FAKE TLS AUTO)");
+            Console.WriteLine("12)general (FAKE TLS)");
+            Console.WriteLine("13)general (МГТС)");
+            Console.WriteLine("14)general (МГТС2)");
+            Console.WriteLine("15)general");
             Console.WriteLine("--------------------------");
             Console.ForegroundColor= ConsoleColor.White;
             Console.Write(">");
@@ -92,10 +100,93 @@ namespace Path_Auto_filler
                         ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
                         break;
                     }
-                default:
-                    Console.WriteLine("Неправильный ввод, допустимы значения 1-6");
+                case 7:
+                    {
+                        ZapretPathNumber = "general (ALT6).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
 
-                    break;
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 8:
+                    {
+                        ZapretPathNumber = "general (FAKE TLS ALT).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 9:
+                    {
+                        ZapretPathNumber = "general (FAKE TLS AUTO ALT).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 10:
+                    {
+                        ZapretPathNumber = "general (FAKE TLS AUTO ALT2).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 11:
+                    {
+                        ZapretPathNumber = "general (FAKE TLS AUTO).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 12:
+                    {
+                        ZapretPathNumber = "general (FAKE TLS).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 13:
+                    {
+                        ZapretPathNumber = "general (МГТС).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 14:
+                    {
+                        ZapretPathNumber = "general (МГТС2).bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                case 15:
+                    {
+                        ZapretPathNumber = "general.bat";
+                        Pathfinder DiscordBat = new Pathfinder(ZapretPathNumber);
+
+
+                        ClassTXTWork.WriteInfoInFile("./_resourses/zapret_path.txt", DiscordBat.FilePath);
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Неправильный ввод, допустимы значения 1-15");
+
+                        break;
+                    }
             }
 
 

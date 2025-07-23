@@ -8,13 +8,13 @@
         {
             try
             {
-                // Ищем файл в текущей директории
+                // Trying to find file in current directory
                 string[] files = Directory.GetFiles(directory, fileName);
                 foreach (string file in files)
                 {
                     Console.WriteLine($"Найден файл: {file}");
                     this.FilePath = file;
-                    return; // Выходим после первого найденного файла
+                    return; // Exit after first found file
                 }
 
                 // Рекурсивно ищем в поддиректориях
@@ -23,16 +23,16 @@
                 {
                     SearchFile(dir, fileName);
                     if (!string.IsNullOrEmpty(this.FilePath))
-                        return; // Если файл найден в поддиректории, выходим
+                        return; // If the file is found in the subdirectory, exit
                 }
             }
             catch (UnauthorizedAccessException)
             {
-                // Пропускаем директории, к которым нет доступа
+                //Skipping directories that are not accessible
             }
             catch (PathTooLongException)
             {
-                // Пропускаем пути, которые слишком длинные
+                //We skip paths that are too long
             }
         }
 
@@ -41,17 +41,17 @@
             Console.WriteLine($"Идет поиск файла {filename} на диске");
             FilePath = null; // Инициализируем как null
 
-            // Получаем список всех дисков
+            // Get a list of all disks
             DriveInfo[] allDrives = DriveInfo.GetDrives();
 
             foreach (DriveInfo drive in allDrives)
             {
-                if (drive.IsReady) // Проверяем, доступен ли диск
+                if (drive.IsReady) // Checking if the disk is accessible
                 {
                     Console.WriteLine($"Поиск на диске {drive.Name}...");
                     SearchFile(drive.RootDirectory.FullName, filename);
                     if (!string.IsNullOrEmpty(FilePath))
-                        break; // Если файл найден, прекращаем поиск
+                        break; //If the file is found, stop searching
                 }
             }
 

@@ -13,7 +13,17 @@ namespace Path_Auto_filler
             int SwitchCaseChooseOperator = 0;
             Console.WriteLine("Какую бы версию zapret вы хотели бы использовать?");
             Console.WriteLine("Выберите и напишите номер zapret работающий у вас");
-            Console.WriteLine("1)discord, 2)general(ALT), 3)general(ALT2), 4)general(ALT3), 5)general(ALT4), 6)general(ALT5)");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("1)discord");
+            Console.WriteLine("2)general(ALT)");
+            Console.WriteLine("3)general(ALT2)");
+            Console.WriteLine("4)general(ALT3");
+            Console.WriteLine("5)general(ALT4)");
+            Console.WriteLine("6)general(ALT5)");
+            Console.WriteLine("7)general(ALT6)");
+            Console.WriteLine("--------------------------");
+            Console.ForegroundColor= ConsoleColor.White;
             Console.Write(">");
             SwitchCaseChooseOperator = int.Parse(Console.ReadLine());
 

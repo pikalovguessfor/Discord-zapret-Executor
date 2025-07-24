@@ -16,8 +16,6 @@
                     this.FilePath = file;
                     return; // Exit after first found file
                 }
-
-                // Рекурсивно ищем в поддиректориях
                 string[] subDirs = Directory.GetDirectories(directory);
                 foreach (string dir in subDirs)
                 {
